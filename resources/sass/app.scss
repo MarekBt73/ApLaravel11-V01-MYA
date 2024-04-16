@@ -1,0 +1,88 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+.container-custom {
+    max-width: 1360px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh; /* Pełna wysokość ekranu */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.row-custom {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.col-left {
+    width: 200px; /* Stała szerokość lewej kolumny */
+    background-color: black;
+    color: white; /* Tekst na lewej kolumnie może być biały dla lepszej widoczności */
+    height: 100%; /* Pełna wysokość kontenera */
+}
+
+.col-right {
+    flex-grow: 1; /* Reszta przestrzeni */
+    background-color: lightgrey;
+    height: 100%; /* Pełna wysokość kontenera */
+}
+
+@media (max-width: 768px) {
+    .row-custom {
+        flex-direction: column;
+    }
+
+    .col-left, .col-right {
+        width: 100%; /* Obie kolumny na pełną szerokość w układzie pionowym */
+    }
+}
+
+
+/* app.blade.php */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Wypełnia wysokość okna przeglądarki */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-container, main {
+    max-width: 1360px;
+    width: 100%;
+    margin: auto;
+}
+
+/* Styl nawigacji, jeśli jest potrzebny */
+.navigation {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
